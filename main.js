@@ -51,3 +51,4 @@ const objects = {
 for (object of Object.values(objects)) {
   console.log(object);
 }
+
