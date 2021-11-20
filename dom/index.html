@@ -10,18 +10,74 @@
 </head>
 
 <body>
-  <div id="test">
-    <ul>
-      <li class="test_list">test1</li>
-      <li class="test_list">test2</li>
-      <li class="test_list">test3</li>
-    </ul>
-  </div>
+
+  <!-- <div id="grand-father">
+    <div id=parent>
+      <div id="target">
+        自分
+      </div>
+    </div>
+    <div id="divList">
+      <div class="div1">テスト1</div>
+      <div class="div2">テスト2</div>
+      <div class="div3">テスト3</div>
+    </div>
+  </div> -->
+
+  <div id="test"></div>
+  <!-- <button id="target" onclick="change_color()">押して！</button> -->
+  <button id="target">押して！</button>
 
   <script>
+    const target = document.getElementById('target');
+
+    target.addEventListener('mouseover', (e) => {
+      console.log(e);
     const test = document.getElementById('test');
-    const testList = document.querySelectorAll('.test_list');
-    console.log(testList);
+    test.textContent = "add";
+    test.classList.add('red');
+    });
+
+    // document.getElementById('target').onclick = function()
+    // {
+    //   const test = document.getElementById('test')
+    //   test.textContent = "add";
+    //   test.classList.add('red');
+    // }
+
+    // function change_color() {
+    //   const test = document.getElementById('test')
+    //   test.textContent = "add";
+    //   test.classList.add('red');
+    // }
+
+    // const target = document.getElementById('target');
+    // const newDiv = document.createElement('div');
+    // newDiv.id = 'test';
+    // newDiv.classList.add('red');
+    // newDiv.textContent = 'テスト';
+    // target.parentNode.appendChild(newDiv);
+
+    // console.log(newDiv);
+
+    // const test = document.getElementById('test').classList.add('red');
+    // test.classList.add('red');
+
+    // const testList = document.querySelector('.test_list');
+    // testList.classList.remove('blue');
+    // console.log(test);
+    // const input = document.getElementById('test')
+    // input.type = 'type';
+    // input.placeholder = 'aaa';
+    // input.name = 'name';
+
+    // console.log(input);
+
+    // const div = document.createElement('a');
+    // div.href = 'https://google.com';
+    // div.target = '_blank';
+    // div.textContent = 'HTMLtext'
+    // console.log(div)
   </script>
 </body>
 
