@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1 引数で状態(ok/ng)と値
+    // 2 Promiseチェーン
+
+    function promiseTest1() {
+      return new Promise(ng => {
+        ng('ngdesu');
+      })
+    }
+    console.log(promiseTest1());
+
+    const promiseTest2 = new Promise(ok => {
+      ok('promise2');
+    });
+
+    console.log(promiseTest2);
+
+    function testPromise3(input) {
+      return new Promise(ok => {
+        ok(`promise${input}です`);
+      });
+    }
+
+    console.log(testPromise3('武田'));
+
+    // rejectは今回使わないため、引数から削除
+    // const promise = new Promise((resolve, reject) => {
+    //   reject();
+    // }).then(() => {
+    //   console.log('resolveしたよ');
+    // }).catch(() => {
+    //   console.log('rejectしたよ');
+    // })
+
+    function promiseTest4(pay) {
+      return new Promise(ok => {
+        let change = pay - 100;
+        ok(change);
+      })
+    }
+
+    // console.log(promiseTest4(500));
+    promiseTest4(600).then(change => {
+      console.log(change);
+      return promiseTest4(change);
+    }).then(change => {
+      change -= 300;
+      console.log(change);
+
+    })
+
+  </script>
+</body>
+
+</html>
