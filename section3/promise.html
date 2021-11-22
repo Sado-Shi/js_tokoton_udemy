@@ -13,26 +13,26 @@
     // 1 引数で状態(ok/ng)と値
     // 2 Promiseチェーン
 
-    function promiseTest1() {
-      return new Promise(ng => {
-        ng('ngdesu');
-      })
-    }
-    console.log(promiseTest1());
+    // function promiseTest1() {
+    //   return new Promise(ng => {
+    //     ng('ngdesu');
+    //   })
+    // }
+    // console.log(promiseTest1());
 
-    const promiseTest2 = new Promise(ok => {
-      ok('promise2');
-    });
+    // const promiseTest2 = new Promise(ok => {
+    //   ok('promise2');
+    // });
 
-    console.log(promiseTest2);
+    // console.log(promiseTest2);
 
-    function testPromise3(input) {
-      return new Promise(ok => {
-        ok(`promise${input}です`);
-      });
-    }
+    // function testPromise3(input) {
+    //   return new Promise(ok => {
+    //     ok(`promise${input}です`);
+    //   });
+    // }
 
-    console.log(testPromise3('武田'));
+    // console.log(testPromise3('武田'));
 
     // rejectは今回使わないため、引数から削除
     // const promise = new Promise((resolve, reject) => {
@@ -43,6 +43,22 @@
     //   console.log('rejectしたよ');
     // })
 
+
+
+    function promiseTest5(pay) {
+      return new Promise((resolve, reject) => {
+        if (pay > 100) {
+          let change = pay - 100;
+          resolve(change);
+        }
+        reject('お金が足りません');
+      });
+    }
+
+    console.log(promiseTest5(80).catch(e => {
+      console.log(e);
+    }));
+
     function promiseTest4(pay) {
       return new Promise(ok => {
         let change = pay - 100;
@@ -50,14 +66,12 @@
       })
     }
 
-    // console.log(promiseTest4(500));
-    promiseTest4(600).then(change => {
-      console.log(change);
-      return promiseTest4(change);
-    }).then(change => {
-      change -= 300;
-      console.log(change);
-
+    console.log(promiseTest4(500));
+    promiseTest4(600).then(change1 => {
+      console.log(change1);
+      return promiseTest4(change1);
+    }).then(change2 => {
+      console.log(change2);
     })
 
   </script>
